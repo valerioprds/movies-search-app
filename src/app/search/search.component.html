@@ -1,13 +1,13 @@
-<h1>Movie Search  dfhdf</h1>
+<h1>Movie Search</h1>
 
 <div>
-  <input type="text" #searchQuery />
-  <button (click)="performSearch(searchQuery.value)">Search</button>
+  <input type="text" #searchQuery class="form-control mb-2" placeholder="Search for movies...">
+  <button (click)="performSearch(searchQuery.value)" class="btn btn-primary">Search</button>
 </div>
 
-<div *ngIf="results.length > 0">
-  <table>
-    <thead>
+<div *ngIf="results.length > 0" class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
       <tr>
         <th>Title</th>
         <th>Year</th>

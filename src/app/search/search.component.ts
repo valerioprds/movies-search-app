@@ -13,7 +13,7 @@ export class SearchComponent {
 
   performSearch(query: string) {
     this.moviesService.search(query).subscribe((response) => {
-      this.results = response.Search; // Asumiendo que la respuesta tiene una propiedad 'Search'
+      this.results = response.Search; 
       console.log(response);
     });
   }
