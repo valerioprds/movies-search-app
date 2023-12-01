@@ -1,1 +1,19 @@
-<p>search works!</p>
+<h1>holaaaa</h1>
+
+<div>
+  <input type="text" #searchQuery />
+  <button (click)="performSearch(searchQuery.value)">Search</button>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <!-- Add more columns as per your API -->
+    </tr>
+    <tr *ngFor="let item of results">
+      <td>{{ item.title }}</td>
+      <!-- Add more cells as per your API -->
+    </tr>
+  </table>
+</div>
