@@ -8,11 +8,13 @@ import { MoviesService } from 'src/service/movies.service';
 })
 export class SearchComponent {
   results: any[] = [];
+
   constructor(private moviesService: MoviesService) {}
 
   performSearch(query: string) {
-    this.moviesService.search(query).subscribe((data) => {
-      this.results = data;
+    this.moviesService.search(query).subscribe((response) => {
+      this.results = response.Search; // Asumiendo que la respuesta tiene una propiedad 'Search'
+      console.log(response);
     });
   }
 }
