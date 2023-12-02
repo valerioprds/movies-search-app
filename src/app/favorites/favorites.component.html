@@ -6,27 +6,31 @@
         <option value="">Default Sort</option>
         <option value="title">Sort by Title</option>
         <option value="year">Sort by Year</option>
-        <option value="type">Sort by type</option>
+        <option value="type">Sort by Type</option>
       </select>
     </div>
   </form>
 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let favorite of filteredFavorites">
+    <div class="col-md-4 mb-4" *ngFor="let favorite of filteredFavorites; let i = index">
       <div class="card custom-card">
-        <img
-          [src]="favorite.Poster"
-          class="card-img-top custom-card-img"
-          alt="Favorite Image"
-        />
+        <img [src]="favorite.Poster" class="card-img-top custom-card-img" alt="Favorite Image" />
         <div class="card-body">
           <h5 class="card-title">{{ favorite.Title }}</h5>
           <p class="card-text">{{ favorite.Year }}</p>
           <p class="card-text">{{ favorite.Type }}</p>
-          <button
-            (click)="removeFromFavorites(favorite)"
-            class="btn btn-danger"
-          >
+          <!-- Rating Form -->
+          <form [formGroup]="ratingForms[i]" class="rating-form my-2">
+            <input type="text" class="form-control" formControlName="rating" placeholder="Rate 1-5" min="1" max="5">
+            <button class="btn btn-primary mt-2" (click)="saveRating(i)">Save Rating</button>
+          </form>
+          <!-- Comment Form -->
+          <form [formGroup]="commentForms[i]" class="comment-form my-2">
+            <textarea class="form-control" formControlName="comment" placeholder="Add a comment"></textarea>
+            <button class="btn btn-secondary mt-2" (click)="saveComment(i)">Save Comment</button>
+          </form>
+          <!-- Remove Button -->
+          <button (click)="removeFromFavorites(favorite)" class="btn btn-danger mt-2">
             Remove from Favorites
           </button>
         </div>
