@@ -1,15 +1,16 @@
 <div class="favorites-container container">
   <!-- Form for filtering -->
-  <form [formGroup]="filterForm">
+  <form [formGroup]="filterForm" class="sort-form">
     <div class="filter-container">
-      <select formControlName="sortType">
-        <option value="">Default Sort</option>
+      <select formControlName="sortType" class="custom-select">
+        <option value="" disabled selected>Select sorting method</option>
         <option value="title">Sort by Title</option>
         <option value="year">Sort by Year</option>
         <option value="type">Sort by Type</option>
       </select>
     </div>
   </form>
+
 
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let favorite of filteredFavorites; let i = index">
