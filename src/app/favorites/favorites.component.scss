@@ -1,26 +1,26 @@
 .custom-card {
-  max-width: 300px; /* Ancho máximo de la tarjeta */
-  min-height: 400px; /* Altura mínima de la tarjeta */
-  margin: auto; /* Centra la tarjeta en la columna */
-  display: flex; /* Habilita Flexbox para el diseño interno */
-  flex-direction: column; /* Organiza los hijos en una columna */
+  max-width: 300px;
+  min-height: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .custom-card-img {
-  max-height: 250px; /* Altura máxima de la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el área sin perder la proporción */
-  width: 100%; /* Hace que la imagen sea responsiva dentro de la tarjeta */
+  max-height: 250px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-body {
-  flex-grow: 1; /* Permite que el cuerpo de la tarjeta crezca para ocupar el espacio disponible */
-  display: flex; /* Habilita Flexbox para el diseño interno */
-  flex-direction: column; /* Organiza los hijos en una columna */
-  justify-content: space-evenly; /* Distribuye el espacio entre elementos */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .card-title, .card-text {
-  overflow: hidden; /* Oculta cualquier contenido que se desborde */
-  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto se desborda */
-  white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
 }
