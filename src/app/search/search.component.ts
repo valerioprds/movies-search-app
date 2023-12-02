@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
 
 @Component({
@@ -9,12 +10,19 @@ import { MoviesService } from 'src/service/movies.service';
 export class SearchComponent {
   results: any[] = [];
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private favoritesService: FavoritesService
+  ) {}
 
   performSearch(query: string) {
     this.moviesService.search(query).subscribe((response) => {
-      this.results = response.Search; 
-      console.log(response);
+      this.results = response.Search;
+      // console.log(this.results);
     });
+  }
+
+  addToFavorites(movie: any) {
+    this.favoritesService.addFavorite(movie);
   }
 }

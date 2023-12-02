@@ -1,0 +1,11 @@
+<div class="favorites-container">
+  <div class="card" *ngFor="let favorite of favorites">
+    <div class="card-body">
+      <h5 class="card-title">{{ favorite.Title }}</h5>
+      <p class="card-text">{{ favorite.Year }}</p>
+      <button (click)="removeFromFavorites(favorite)" class="btn btn-danger">
+        Remove from Favorites
+      </button>
+    </div>
+  </div>
+</div>
