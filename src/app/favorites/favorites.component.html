@@ -1,11 +1,18 @@
-<div class="favorites-container">
-  <div class="card" *ngFor="let favorite of favorites">
-    <div class="card-body">
-      <h5 class="card-title">{{ favorite.Title }}</h5>
-      <p class="card-text">{{ favorite.Year }}</p>
-      <button (click)="removeFromFavorites(favorite)" class="btn btn-danger">
-        Remove from Favorites
-      </button>
+<div class="favorites-container container">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let favorite of favorites">
+      <div class="card custom-card">
+        <img [src]="favorite.Poster" class="card-img-top custom-card-img" alt="Favorite Image" />
+        <div class="card-body">
+          <h5 class="card-title">{{ favorite.Title }}</h5>
+          <p class="card-text">{{ favorite.Year }}</p>
+          <p class="card-text"></p>
+
+          <button (click)="removeFromFavorites(favorite)" class="btn btn-danger">
+            Remove from Favorites
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

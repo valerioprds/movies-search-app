@@ -1,0 +1,11 @@
+.custom-card {
+  max-width: 300px; /* Adjust as needed */
+  max-height: 500px; /* Adjust as needed */
+  margin: auto; /* Centers the card in the column */
+}
+
+.custom-card-img {
+  max-height: 250px; /* Adjust as needed */
+  object-fit: cover; /* Ensures the image covers the area without losing aspect ratio */
+  width: 100%; /* Makes the image responsive within the card */
+}

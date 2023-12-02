@@ -22,5 +22,6 @@ export class FavoritesComponent implements OnInit {
   removeFromFavorites(movie: any) {
     this.favoritesService.removeFavorite(movie);
     this.loadFavorites(); // Recargar la lista de favoritos después de eliminar
+    console.log('deleted one movie' , this.favorites)
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,8 @@ export class SearchComponent {
   constructor(
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   performSearch(query: string) {
@@ -30,7 +32,9 @@ export class SearchComponent {
   }
 
 
-  showFavorites(){
-    console.log('show favorite button pressed')
+  showFavorites() {
+    console.log('Show favorite button pressed');
+    this.router.navigate(['/favorites']);
   }
+
 }
