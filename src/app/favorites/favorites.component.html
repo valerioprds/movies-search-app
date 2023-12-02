@@ -6,7 +6,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ favorite.Title }}</h5>
           <p class="card-text">{{ favorite.Year }}</p>
-          <p class="card-text"></p>
+          <p class="card-text">{{ favorite.Type }}</p>
 
           <button (click)="removeFromFavorites(favorite)" class="btn btn-danger">
             Remove from Favorites
