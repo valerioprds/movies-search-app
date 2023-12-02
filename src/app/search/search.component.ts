@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +13,8 @@ export class SearchComponent {
 
   constructor(
     private moviesService: MoviesService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private toastr: ToastrService
   ) {}
 
   performSearch(query: string) {
@@ -24,5 +26,11 @@ export class SearchComponent {
 
   addToFavorites(movie: any) {
     this.favoritesService.addFavorite(movie);
+    this.toastr.success('Movie added to favorites!', 'Success');
+  }
+
+
+  showFavorites(){
+    console.log('show favorite button pressed')
   }
 }

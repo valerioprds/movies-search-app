@@ -13,6 +13,7 @@ export class FavoritesService {
   addFavorite(movie: any) {
     this.favorites.push(movie);
     this.saveFavorites();
+    console.log(this.favorites, 'desde el servicio')
   }
 
   removeFavorite(movie: any) {
