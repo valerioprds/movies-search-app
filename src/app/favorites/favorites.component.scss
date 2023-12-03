@@ -9,15 +9,26 @@
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-
+.custom-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  border: 1px solid #007bff;
+  background-color: #b8c6d4;
+}
 
 .custom-card-img {
   max-height: 250px;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.custom-card-img:hover {
+  transform: rotate(3deg);
+  transition: transform 0.3s ease;
 }
 
 .card-body {
@@ -34,13 +45,19 @@
   white-space: nowrap;
 }
 
+.card-title:hover, .card-text:hover {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
 .btn {
   border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
 }
 
 .btn:hover {
   filter: brightness(90%);
+  transform: scale(1.1);
 }
 
 input[type="text"],
@@ -59,4 +76,3 @@ textarea {
     min-height: auto;
   }
 }
-/* mantenerrrrrr */
