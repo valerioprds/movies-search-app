@@ -10,7 +10,7 @@ To get started with Controlli, follow these simple steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone [repository URL]
+    git clone https://github.com/valerioprds/prueba-controlli.git
     ```
 
 2. **Install dependencies:**
