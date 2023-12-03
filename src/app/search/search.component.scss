@@ -1,11 +1,21 @@
-.container {
-  max-width: 800px;
-  margin: auto;
+.background-image {
+  background-image: url("https://m.media-amazon.com/images/I/81AjDIz7DDL._AC_UF894,1000_QL80_.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 20px;
 }
 
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffffe6; /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .text-center {
-  text-align: center;
   color: #333;
 }
 
@@ -41,12 +51,12 @@
 }
 
 .favorites-btn {
-  background-color: #dc3545;
+  background-color: #7ddc35;
   color: white;
 }
 
 .favorites-btn:hover {
-  background-color: #bd2130;
+  background-color: #64b526;
 }
 
 .results-table {
@@ -59,7 +69,8 @@
   border-collapse: collapse;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   text-align: left;
   padding: 10px;
   border: 1px solid #ddd;
@@ -85,12 +96,12 @@
 
 @media (max-width: 600px) {
   .search-area {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .btn {
-      width: 100%;
-      margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
 }

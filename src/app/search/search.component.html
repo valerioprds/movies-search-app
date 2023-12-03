@@ -1,42 +1,45 @@
-<div class="container">
-  <h1 class="text-center">Movie Search</h1>
-  <div class="search-area">
-    <input
-      type="text"
-      #searchQuery
-      class="search-input"
-      placeholder="Search for movies..."
-    />
-    <button (click)="performSearch(searchQuery.value)" class="btn search-btn">
-      Search
-    </button>
-    <button (click)="showFavorites()" class="btn favorites-btn">
-      Show Favorites
-    </button>
-  </div>
+<div class="background-image">
+  <div class="container">
+    <h1 class="text-center">Movie Search</h1>
+    <div class="search-area">
+      <input
+        type="text"
+        #searchQuery
+        class="search-input"
+        placeholder="Search for movies..."
+      />
+      <button (click)="performSearch(searchQuery.value)" class="btn search-btn">
+        Search
+      </button>
+      <button (click)="showFavorites()" class="btn favorites-btn">
+        Show Favorites
+      </button>
+    </div>
 
-  <div *ngIf="results.length > 0" class="results-table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Year</th>
-          <th>Type</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let movie of results">
-          <td>{{ movie.Title }}</td>
-          <td>{{ movie.Year }}</td>
-          <td>{{ movie.Type }}</td>
-          <td>
-            <button (click)="addToFavorites(movie)" class="btn add-fav-btn">
-              Add to Favorites
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div *ngIf="results.length > 0" class="results-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of results">
+            <td>{{ movie.Title }}</td>
+            <td>{{ movie.Year }}</td>
+            <td>{{ movie.Type }}</td>
+            <td>
+              <button (click)="addToFavorites(movie)" class="btn add-fav-btn">
+                Add to Favorites
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
