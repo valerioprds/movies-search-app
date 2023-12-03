@@ -56,6 +56,7 @@ export class FavoritesComponent implements OnInit {
       `rating_${this.filteredFavorites[index].imdbID}`,
       ratingValue
     );
+    // Aquí podrías llamar a un servicio o enviar un evento para notificar a otros componentes del cambio
   }
 
   saveComment(index: number) {

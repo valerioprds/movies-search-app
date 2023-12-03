@@ -27,6 +27,9 @@ export class FavoritesService {
     return this.favorites;
   }
 
+
+
+
   private loadFavorites() {
     const favorites = localStorage.getItem('favorites');
     if (favorites) {
@@ -37,4 +40,7 @@ export class FavoritesService {
   private saveFavorites() {
     localStorage.setItem('favorites', JSON.stringify(this.favorites));
   }
+
+
+  
 }
