@@ -25,7 +25,6 @@
             <th>Year</th>
             <th>Type</th>
             <th>Actions</th>
-            <th>Users rating</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +32,6 @@
             <td>{{ movie.Title }}</td>
             <td>{{ movie.Year }}</td>
             <td>{{ movie.Type }}</td>
-            <td></td> <!-- aqui quiero que se vea el rating -->
             <td>
               <button (click)="addToFavorites(movie)" class="btn add-fav-btn">
                 Add to Favorites
