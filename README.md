@@ -34,7 +34,6 @@ To get started with Controlli, follow these simple steps:
 
 - Angular (Version 16.2.0)
 - RxJS (Version 7.8.0)
-- ngx-toastr (Version 18.0.0)
 - Angular CLI (Version 16.2.10)
 
 ## Application Structure
