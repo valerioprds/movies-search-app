@@ -1,27 +1,65 @@
-# Controlli
+# Controlli App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+## Introduction
 
-## Development server
+Welcome to the **Controlli** App! This is an Angular-based application that allows users to search for movies, add them to favorites, and manage their favorite list with personalized comments.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+To get started with Controlli, follow these simple steps:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/valerioprds/prueba-controlli.git
+    ```
 
-## Build
+2. **Install dependencies:**
+    Navigate to the project directory and run:
+    ```bash
+    npm install
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Start the application:**
+    ```bash
+    npm start
+    ```
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Movie Search
+- Add movies to Favorites
+- View and manage Favorites list
 
-## Running end-to-end tests
+## Technologies Used
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Angular (Version 16.2.0)
+- RxJS (Version 7.8.0)
+- Angular CLI (Version 16.2.10)
 
-## Further help
+## Application Structure
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `MoviesService`: Handles API calls to fetch movie data.
+- `FavoritesService`: Manages favorite movies in local storage.
+- `SearchComponent`: Component for searching movies.
+- `FavoritesComponent`: Component for displaying and managing favorites.
+
+## Scripts
+
+- **Start App**: `ng serve -o`
+- **Build**: `ng build`
+- **Watch**: `ng build --watch --configuration development`
+- **Test**: `ng test`
+
+## Dependencies
+
+- Angular Core and related modules
+- ngx-toastr for notifications
+- TypeScript, Jasmine, Karma for development and testing
+
+## Contributing
+
+Contributions to **Controlli** are welcome. Please follow standard coding practices and submit your pull requests for review.
+
+---
+
+Enjoy using **Controlli** for your movie explorations! 🎬🍿
