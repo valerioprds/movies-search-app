@@ -9,10 +9,10 @@
         placeholder="Search for movies..."
       />
       <button (click)="performSearch(searchQuery.value)" class="btn search-btn">
-        Search
+        <i class="fa-solid fa-magnifying-glass"></i> Search
       </button>
       <button (click)="showFavorites()" class="btn favorites-btn">
-        Show Favorites
+        <i class="fa-regular fa-heart"></i>  Show Favorites
       </button>
     </div>
 
@@ -34,7 +34,7 @@
             <td>{{ movie.Type }}</td>
             <td>
               <button (click)="addToFavorites(movie)" class="btn add-fav-btn">
-                Add to Favorites
+                <i class="fa-solid fa-plus"></i> Add to Favorites
               </button>
             </td>
           </tr>
