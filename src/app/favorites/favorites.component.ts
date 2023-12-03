@@ -9,7 +9,6 @@ import { FavoritesService } from 'src/service/favorites.service';
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-  [x: string]: any;
   favorites: any[] = [];
   filteredFavorites: any[] = [];
   filterForm!: FormGroup;
@@ -31,32 +30,28 @@ export class FavoritesComponent implements OnInit {
     this.favorites = this.favoritesService.getFavorites();
     this.filteredFavorites = [...this.favorites];
 
-    // Initialize rating and comment forms for each favorite
-    this.filteredFavorites.forEach((favorite) => {
+    this.filteredFavorites.forEach((favorite, index) => {
       const ratingForm = this.fb.group({
         rating: [
           favorite.rating || '',
           [Validators.required, Validators.min(1), Validators.max(5)],
         ],
       });
+
       const commentForm = this.fb.group({
         comment: [
           localStorage.getItem(`comment_${favorite.imdbID}`) || '',
           Validators.maxLength(200),
         ],
       });
+
       this.ratingForms.push(ratingForm);
       this.commentForms.push(commentForm);
-    });
-  }
 
-  saveRating(index: number) {
-    const ratingValue = this.ratingForms[index].get('rating')?.value;
-    localStorage.setItem(
-      `rating_${this.filteredFavorites[index].imdbID}`,
-      ratingValue
-    );
-    // Aquí podrías llamar a un servicio o enviar un evento para notificar a otros componentes del cambio
+      // Initialize the comment from localStorage
+      favorite.comment =
+        localStorage.getItem(`comment_${favorite.imdbID}`) || '';
+    });
   }
 
   saveComment(index: number) {
@@ -66,7 +61,8 @@ export class FavoritesComponent implements OnInit {
       commentValue
     );
 
-    console.log(commentValue);
+    // Update the comment in the filteredFavorites array
+    this.filteredFavorites[index].comment = commentValue;
   }
 
   removeFromFavorites(movie: any) {
