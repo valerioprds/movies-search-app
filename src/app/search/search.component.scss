@@ -1,5 +1,5 @@
 .background-image {
-  background-image: url("https://m.media-amazon.com/images/I/81AjDIz7DDL._AC_UF894,1000_QL80_.jpg"); /* Replace with your image path */
+  background-image: url("/assets/img-poster.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -106,7 +106,6 @@
 .fade-in {
   animation: fadeIn 1s ease-out;
 }
-
 
 @media (max-width: 600px) {
   .search-area {
