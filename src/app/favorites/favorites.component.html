@@ -13,7 +13,9 @@
         </select>
       </div>
       <div class="col-md-auto">
-        <button class="btn btn-secondary" (click)="goBack()">Go back</button>
+        <button class="btn btn-primary" (click)="goBack()">
+          <i class="fas fa-arrow-left"></i> Go back
+        </button>
       </div>
     </div>
   </form>
@@ -43,16 +45,17 @@
               formControlName="comment"
               placeholder="Add a comment"
             ></textarea>
-            <button class="btn btn-secondary mt-2" (click)="saveComment(i)">
-              Save Comment
+            <button class="btn btn-primary mt-2">
+              <i class="fas fa-save"></i> Save Comment
             </button>
           </form>
+
           <!-- Remove Button -->
           <button
             (click)="removeFromFavorites(favorite)"
             class="btn btn-danger mt-2"
           >
-            Remove from Favorites
+            <i class="fas fa-trash"></i> Remove from Favorites
           </button>
         </div>
       </div>
