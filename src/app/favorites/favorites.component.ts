@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FavoritesService } from 'src/service/favorites.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { FavoritesService } from 'src/service/favorites.service';
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
   favorites: any[] = [];
   filteredFavorites: any[] = [];
   filterForm!: FormGroup;
@@ -17,7 +18,8 @@ export class FavoritesComponent implements OnInit {
 
   constructor(
     private favoritesService: FavoritesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -55,7 +57,6 @@ export class FavoritesComponent implements OnInit {
       ratingValue
     );
   }
-  comment: string = ''
 
   saveComment(index: number) {
     const commentValue = this.commentForms[index].get('comment')?.value;
@@ -64,8 +65,7 @@ export class FavoritesComponent implements OnInit {
       commentValue
     );
 
-    this.comment = commentValue
-    console.log(commentValue)
+    console.log(commentValue);
   }
 
   removeFromFavorites(movie: any) {
@@ -107,5 +107,9 @@ export class FavoritesComponent implements OnInit {
     }
 
     this.filteredFavorites = filtered;
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/');
   }
 }
