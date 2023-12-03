@@ -19,12 +19,12 @@
   <!-- Movie Cards -->
   <div class="row">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let favorite of filteredFavorites; let i = index">
-      <div class="card custom-card">
+      <div class="card custom-card animate__animated animate__fadeInUp">
         <img [src]="favorite.Poster" class="card-img-top custom-card-img" alt="Favorite Image" />
         <div class="card-body">
           <h5 class="card-title">{{ favorite.Title }}</h5>
-          <p class="card-text">{{ favorite.Year }}</p>
-          <p class="card-text">{{ favorite.Type }}</p>
+          <p class="card-text">Year: {{ favorite.Year }}</p>
+          <p class="card-text">Type: {{ favorite.Type }}</p>
           <!-- Rating Form -->
           <form [formGroup]="ratingForms[i]" class="rating-form my-2">
             <input type="text" class="form-control" formControlName="rating" placeholder="Rate 1-5" min="1" max="5">
