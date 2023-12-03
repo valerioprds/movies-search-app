@@ -1,8 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FavoritesService } from 'src/service/favorites.service';
-/* reverted back  */
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -100,3 +101,5 @@ export class FavoritesComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 }
+
+
