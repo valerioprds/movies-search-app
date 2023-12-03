@@ -1,21 +1,24 @@
 <div class="favorites-container container">
   <!-- Form for filtering -->
-  <form [formGroup]="filterForm" class="sort-form">
-    <div class="filter-container">
-      <select formControlName="sortType" class="custom-select">
-        <option value="" disabled selected>Select sorting method</option>
-        <option value="title">Sort by Title</option>
-        <option value="year">Sort by Year</option>
-        <option value="type">Sort by Type</option>
-      </select>
+  <form [formGroup]="filterForm" class="sort-form my-3">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <select formControlName="sortType" class="form-control custom-select">
+          <option value="" disabled selected>Select sorting method</option>
+          <option value="title">Sort by Title</option>
+          <option value="year">Sort by Year</option>
+          <option value="type">Sort by Type</option>
+        </select>
+      </div>
+      <div class="col-md-auto">
+        <button class="btn btn-secondary" (click)="goBack()">Go back</button>
+      </div>
     </div>
   </form>
 
-  <button (click)="goBack()">Go back </button>
-
-
+  <!-- Movie Cards -->
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let favorite of filteredFavorites; let i = index">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let favorite of filteredFavorites; let i = index">
       <div class="card custom-card">
         <img [src]="favorite.Poster" class="card-img-top custom-card-img" alt="Favorite Image" />
         <div class="card-body">

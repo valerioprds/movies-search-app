@@ -1,27 +1,25 @@
-
-
-
+.custom-select {
+  margin-bottom: 10px;
+}
 
 .custom-card {
-  max-width: 450px;
+  max-width: 100%;
   min-height: 500px;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
-  transition: transform 0.3s ease-in-out; /* Transición suave */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .custom-card:hover {
-  transform: scale(1.05); /* Efecto al pasar el ratón sobre la tarjeta */
+  transform: scale(1.05);
 }
 
 .custom-card-img {
   max-height: 250px;
   object-fit: cover;
-  width: 100%;
-  border-top-left-radius: 10px; /* Bordes redondeados en la imagen */
+  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
@@ -38,24 +36,27 @@
   white-space: nowrap;
 }
 
-
-
 .btn {
-  border-radius: 5px; /* Bordes redondeados para botones */
+  border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
 }
 
 .btn:hover {
-  filter: brightness(90%); /* Efecto hover para botones */
+  filter: brightness(90%);
 }
 
-/* Estilos para formularios */
 input[type="text"], textarea {
-  border-radius: 5px; /* Bordes redondeados para entradas de texto */
+  border-radius: 5px;
   border: 1px solid #747373;
   padding: 10px;
 }
 
 textarea {
-  resize: vertical; /* Permite ajustar el tamaño verticalmente */
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    min-height: auto;
+  }
 }
