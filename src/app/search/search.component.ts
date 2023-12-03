@@ -28,7 +28,6 @@ export class SearchComponent {
 
   addToFavorites(movie: any) {
     this.favoritesService.addFavorite(movie);
-    this.toastr.success('Movie added to favorites!', 'Success');
   }
 
 
