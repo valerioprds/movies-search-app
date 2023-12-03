@@ -12,7 +12,6 @@ export class FavoritesComponent implements OnInit {
   favorites: any[] = [];
   filteredFavorites: any[] = [];
   filterForm!: FormGroup;
-  ratingForms: FormGroup[] = [];
   commentForms: FormGroup[] = [];
 
   constructor(
@@ -31,13 +30,6 @@ export class FavoritesComponent implements OnInit {
     this.filteredFavorites = [...this.favorites];
 
     this.filteredFavorites.forEach((favorite, index) => {
-      const ratingForm = this.fb.group({
-        rating: [
-          favorite.rating || '',
-          [Validators.required, Validators.min(1), Validators.max(5)],
-        ],
-      });
-
       const commentForm = this.fb.group({
         comment: [
           localStorage.getItem(`comment_${favorite.imdbID}`) || '',
@@ -45,12 +37,10 @@ export class FavoritesComponent implements OnInit {
         ],
       });
 
-      this.ratingForms.push(ratingForm);
       this.commentForms.push(commentForm);
 
       // Initialize the comment from localStorage
-      favorite.comment =
-        localStorage.getItem(`comment_${favorite.imdbID}`) || '';
+      favorite.comment = localStorage.getItem(`comment_${favorite.imdbID}`) || '';
     });
   }
 
