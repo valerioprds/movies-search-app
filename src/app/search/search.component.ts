@@ -1,3 +1,4 @@
+import { Movie } from '../interface/movie';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 
 import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
-import { Movie } from '../../results';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +13,7 @@ import { Movie } from '../../results';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  results: Movie[] = []; 
+  results: Movie[] = [];
 
   constructor(
     private moviesService: MoviesService,

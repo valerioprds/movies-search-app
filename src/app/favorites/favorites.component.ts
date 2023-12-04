@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/service/favorites.service';
+import { FavoriteMovie } from '../interface/favoriteMovie';
+
 
 @Component({
   selector: 'app-favorites',
@@ -10,8 +12,8 @@ import { FavoritesService } from 'src/service/favorites.service';
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-  favorites: any[] = [];
-  filteredFavorites: any[] = [];
+  favorites: FavoriteMovie[] = [];
+  filteredFavorites: FavoriteMovie[] = [];
   filterForm!: FormGroup;
   commentForms: FormGroup[] = [];
 
