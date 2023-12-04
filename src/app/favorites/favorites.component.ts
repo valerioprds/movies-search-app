@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/service/favorites.service';
 import { FavoriteMovie } from '../interface/favoriteMovie';
 
-
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -16,6 +15,7 @@ export class FavoritesComponent implements OnInit {
   filteredFavorites: FavoriteMovie[] = [];
   filterForm!: FormGroup;
   commentForms: FormGroup[] = [];
+  isFilterApplied = false;
 
   constructor(
     private favoritesService: FavoritesService,
@@ -53,7 +53,7 @@ export class FavoritesComponent implements OnInit {
     this.filteredFavorites[index].comment = commentValue;
   }
 
-  removeFromFavorites(movie: any) {
+  removeFromFavorites(movie: FavoriteMovie) {
     this.favoritesService.removeFavorite(movie);
     this.toastr.success('Movie deleted from Favorites', 'Success!');
     this.loadFavorites();
@@ -72,27 +72,33 @@ export class FavoritesComponent implements OnInit {
 
   private applyFilters() {
     let filtered = [...this.favorites];
+
+    // Check if any filter is applied
+    this.isFilterApplied = this.filterForm.value.yearFilter ||
+                           this.filterForm.value.typeFilter ||
+                           this.filterForm.value.nameFilter;
+
     filtered = this.applyYearFilter(filtered);
     filtered = this.applyTypeFilter(filtered);
     filtered = this.applyNameFilter(filtered);
     this.filteredFavorites = this.applySort(filtered);
   }
 
-  private applyYearFilter(favorites: any[]): any[] {
+  private applyYearFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     if (this.filterForm.value.yearFilter) {
       return favorites.filter((favorite) => favorite.Year === this.filterForm.value.yearFilter);
     }
     return favorites;
   }
 
-  private applyTypeFilter(favorites: any[]): any[] {
+  private applyTypeFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     if (this.filterForm.value.typeFilter) {
       return favorites.filter((favorite) => favorite.Type === this.filterForm.value.typeFilter);
     }
     return favorites;
   }
 
-  private applyNameFilter(favorites: any[]): any[] {
+  private applyNameFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     const nameFilter = this.filterForm.value.nameFilter?.toLowerCase();
     if (nameFilter) {
       return favorites.filter(favorite => favorite.Title.toLowerCase().includes(nameFilter));
@@ -100,7 +106,7 @@ export class FavoritesComponent implements OnInit {
     return favorites;
   }
 
-  private applySort(favorites: any[]): any[] {
+  private applySort(favorites: FavoriteMovie[]): any[] {
     const sortType = this.filterForm.value.sortType;
     if (sortType === 'title') {
       return favorites.sort((a, b) => a.Title.localeCompare(b.Title));

@@ -82,7 +82,7 @@
 
   <!-- message when no movie found -->
   <div
-    *ngIf="filteredFavorites.length === 0"
+    *ngIf="filteredFavorites.length === 0 && isFilterApplied"
     class="alert alert-warning text-center"
   >
     Movie not found.
