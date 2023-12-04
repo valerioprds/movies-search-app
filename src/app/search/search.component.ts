@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
+import { Movie } from '../../results';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +13,7 @@ import { MoviesService } from 'src/service/movies.service';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  results: any[] = [];
+  results: Movie[] = []; 
 
   constructor(
     private moviesService: MoviesService,
