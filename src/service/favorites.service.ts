@@ -15,8 +15,19 @@ export class FavoritesService {
    * @param movie The movie object to be added.
    */
   addFavorite(movie: any) {
-    this.favorites.push(movie);
-    this.saveFavorites();
+    if (!this.isFavorite(movie)) {
+      this.favorites.push(movie);
+      this.saveFavorites();
+    }
+  }
+
+  /**
+   * Checks if a movie is already in favorites.
+   * @param movie The movie to check.
+   * @returns True if the movie is in favorites, false otherwise.
+   */
+  isFavorite(movie: any): boolean {
+    return this.favorites.some((fav) => fav.imdbID === movie.imdbID);
   }
 
   /**

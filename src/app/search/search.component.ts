@@ -36,8 +36,12 @@ export class SearchComponent {
    * @param movie The movie object to add to favorites.
    */
   addToFavorites(movie: any) {
-    this.favoritesService.addFavorite(movie);
-    this.toastr.success('Movie Added to Favorites', 'Success!');
+    if (this.favoritesService.isFavorite(movie)) {
+      this.toastr.error('This movie is already in your favorites!', 'Oops');
+    } else {
+      this.favoritesService.addFavorite(movie);
+      this.toastr.success('Movie Added to Favorites', 'Success!');
+    }
   }
 
   /**
