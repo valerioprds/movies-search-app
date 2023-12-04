@@ -23,7 +23,8 @@ To get started with Controlli, follow these simple steps:
     ```bash
     npm start
     ```
-
+4. **change the URL of the API:**
+   change the baseUrl in order for the app to work. you can get your API key from here  https://www.omdbapi.com/ 
 ## Features
 
 - Movie Search
