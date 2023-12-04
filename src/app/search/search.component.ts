@@ -52,7 +52,7 @@ export class SearchComponent {
    * Adds a movie to favorites using the FavoritesService and shows a success toast.
    * @param movie The movie object to add to favorites.
    */
-  addToFavorites(movie: any) {
+  addToFavorites(movie: Movie) {
     if (this.favoritesService.isFavorite(movie)) {
       this.toastr.error('This movie is already in your favorites!', 'Oops');
     } else {
