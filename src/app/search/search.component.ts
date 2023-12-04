@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/service/favorites.service';
 import { MoviesService } from 'src/service/movies.service';
 
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -27,9 +29,23 @@ export class SearchComponent {
    * @param query The search query string.
    */
   performSearch(query: string) {
-    this.moviesService.search(query).subscribe((response) => {
-      this.results = response.Search;
-    });
+    this.moviesService
+      .search(query)
+      .pipe(
+        catchError((error) => {
+          console.error('Error occurred while searching: ', error);
+          this.toastr.error('No results found or error occurred!', 'Error');
+          return throwError(error); // Rethrow the error
+        })
+      )
+      .subscribe((response) => {
+        if (response.Search && response.Search.length > 0) {
+          this.results = response.Search;
+        } else {
+          this.toastr.error('No results found!', 'Error');
+          this.results = [];
+        }
+      });
   }
 
   /**
