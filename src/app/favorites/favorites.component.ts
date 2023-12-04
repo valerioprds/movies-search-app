@@ -38,7 +38,10 @@ export class FavoritesComponent implements OnInit {
   private initializeCommentForms() {
     this.commentForms = this.filteredFavorites.map((favorite) =>
       this.fb.group({
-        comment: [this.retrieveComment(favorite.imdbID), Validators.maxLength(200)],
+        comment: [
+          this.retrieveComment(favorite.imdbID),
+          Validators.maxLength(200),
+        ],
       })
     );
   }
@@ -49,7 +52,10 @@ export class FavoritesComponent implements OnInit {
 
   saveComment(index: number) {
     const commentValue = this.commentForms[index].get('comment')?.value;
-    localStorage.setItem(`comment_${this.filteredFavorites[index].imdbID}`, commentValue);
+    localStorage.setItem(
+      `comment_${this.filteredFavorites[index].imdbID}`,
+      commentValue
+    );
     this.filteredFavorites[index].comment = commentValue;
   }
 
@@ -61,7 +67,6 @@ export class FavoritesComponent implements OnInit {
 
   private initializeForm() {
     this.filterForm = this.fb.group({
-      sortType: [''],
       yearFilter: [''],
       typeFilter: [''],
       nameFilter: [''],
@@ -74,9 +79,10 @@ export class FavoritesComponent implements OnInit {
     let filtered = [...this.favorites];
 
     // Check if any filter is applied
-    this.isFilterApplied = this.filterForm.value.yearFilter ||
-                           this.filterForm.value.typeFilter ||
-                           this.filterForm.value.nameFilter;
+    this.isFilterApplied =
+      this.filterForm.value.yearFilter ||
+      this.filterForm.value.typeFilter ||
+      this.filterForm.value.nameFilter;
 
     filtered = this.applyYearFilter(filtered);
     filtered = this.applyTypeFilter(filtered);
@@ -86,14 +92,18 @@ export class FavoritesComponent implements OnInit {
 
   private applyYearFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     if (this.filterForm.value.yearFilter) {
-      return favorites.filter((favorite) => favorite.Year === this.filterForm.value.yearFilter);
+      return favorites.filter(
+        (favorite) => favorite.Year === this.filterForm.value.yearFilter
+      );
     }
     return favorites;
   }
 
   private applyTypeFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     if (this.filterForm.value.typeFilter) {
-      return favorites.filter((favorite) => favorite.Type === this.filterForm.value.typeFilter);
+      return favorites.filter(
+        (favorite) => favorite.Type === this.filterForm.value.typeFilter
+      );
     }
     return favorites;
   }
@@ -101,12 +111,14 @@ export class FavoritesComponent implements OnInit {
   private applyNameFilter(favorites: FavoriteMovie[]): FavoriteMovie[] {
     const nameFilter = this.filterForm.value.nameFilter?.toLowerCase();
     if (nameFilter) {
-      return favorites.filter(favorite => favorite.Title.toLowerCase().includes(nameFilter));
+      return favorites.filter((favorite) =>
+        favorite.Title.toLowerCase().includes(nameFilter)
+      );
     }
     return favorites;
   }
 
-  private applySort(favorites: FavoriteMovie[]): any[] {
+  private applySort(favorites: FavoriteMovie[]): FavoriteMovie[] {
     const sortType = this.filterForm.value.sortType;
     if (sortType === 'title') {
       return favorites.sort((a, b) => a.Title.localeCompare(b.Title));
