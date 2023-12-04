@@ -10,6 +10,11 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Performs a search query to the movie database.
+   * @param query The search term.
+   * @returns An Observable containing the search results.
+   */
   search(query: string): Observable<any> {
     return this.http.get(`${this.baseUrl}&s=${query}`);
   }

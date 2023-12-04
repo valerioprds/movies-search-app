@@ -12,10 +12,9 @@
         <i class="fa-solid fa-magnifying-glass"></i> Search
       </button>
       <button (click)="showFavorites()" class="btn favorites-btn">
-        <i class="fa-regular fa-heart"></i>  Show Favorites
+        <i class="fa-regular fa-heart"></i> Show Favorites
       </button>
     </div>
-
 
     <div *ngIf="results.length > 0" class="results-table">
       <table class="table">
@@ -28,12 +27,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let movie of results"  class="fade-in">
+          <tr *ngFor="let movie of results" class="fade-in">
             <td>{{ movie.Title }}</td>
             <td>{{ movie.Year }}</td>
             <td>{{ movie.Type }}</td>
             <td>
-              <button (click)="addToFavorites(movie)" class="btn add-fav-btn">
+              <button
+                (click)="addToFavorites(movie)"
+                class="btn add-fav-btn text-centre"
+              >
                 <i class="fa-solid fa-plus"></i> Add to Favorites
               </button>
             </td>

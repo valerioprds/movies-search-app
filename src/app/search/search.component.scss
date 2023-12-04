@@ -1,30 +1,33 @@
-/* .background-image {
- background-image: url("/assets/img-poster.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-} */
-
+// Container style
 .container {
   max-width: 800px;
   margin: auto;
-  background-color: #ffffffe6; /* Semi-transparent background */
+  background-color: #ffffffe6; // Semi-transparent background
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+// Text center alignment
 .text-center {
   color: #333;
 }
 
+// Search area styling
 .search-area {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+
+  // Responsive design adjustments for search area
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
+// Search input styling
 .search-input {
   flex-grow: 1;
   padding: 10px;
@@ -32,67 +35,83 @@
   border: 1px solid #ddd;
 }
 
+// Base button styling
 .btn {
   padding: 10px 15px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+
+  // Responsive design adjustments for buttons
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
-.search-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.search-btn:hover {
-  background-color: #0056b3;
-}
-
+// Specific styles for search and favorites buttons
+.search-btn,
 .favorites-btn {
-  background-color: #7ddc35;
   color: white;
+
+  // Search button specific style
+  &.search-btn {
+    background-color: #007bff;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  // Favorites button specific style
+  &.favorites-btn {
+    background-color: #7ddc35;
+
+    &:hover {
+      background-color: #64b526;
+    }
+  }
 }
 
-.favorites-btn:hover {
-  background-color: #64b526;
-}
-
+// Table styling
 .results-table {
   width: 100%;
   overflow-x: auto;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #343a40;
+      color: white;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  }
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  text-align: left;
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-.table th {
-  background-color: #343a40;
-  color: white;
-}
-
-.table tbody tr:nth-child(odd) {
-  background-color: #f2f2f2;
-}
-
+// Add favorite button styling
 .add-fav-btn {
   background-color: #28a745;
   color: white;
+
+  &:hover {
+    background-color: #218838;
+  }
 }
 
-.add-fav-btn:hover {
-  background-color: #218838;
-}
-
+// Fade-in animation
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -104,16 +123,4 @@
 
 .fade-in {
   animation: fadeIn 1s ease-out;
-}
-
-@media (max-width: 600px) {
-  .search-area {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
-    margin-top: 10px;
-  }
 }
