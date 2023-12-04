@@ -28,12 +28,10 @@ export class SearchComponent {
 
   addToFavorites(movie: any) {
     this.favoritesService.addFavorite(movie);
+    this.toastr.success('Movie Added to Favorites', 'Success!');
   }
-
 
   showFavorites() {
-    console.log('Show favorite button pressed');
     this.router.navigate(['/favorites']);
   }
-
 }

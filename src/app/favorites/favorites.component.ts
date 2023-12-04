@@ -1,7 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/service/favorites.service';
 
 @Component({
@@ -18,7 +18,8 @@ export class FavoritesComponent implements OnInit {
   constructor(
     private favoritesService: FavoritesService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -41,7 +42,8 @@ export class FavoritesComponent implements OnInit {
       this.commentForms.push(commentForm);
 
       // Initialize the comment from localStorage
-      favorite.comment = localStorage.getItem(`comment_${favorite.imdbID}`) || '';
+      favorite.comment =
+        localStorage.getItem(`comment_${favorite.imdbID}`) || '';
     });
   }
 
@@ -58,6 +60,7 @@ export class FavoritesComponent implements OnInit {
 
   removeFromFavorites(movie: any) {
     this.favoritesService.removeFavorite(movie);
+    this.toastr.success('Movie deleted from Favorites', 'Success!');
     this.loadFavorites();
   }
 
@@ -101,5 +104,3 @@ export class FavoritesComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 }
-
-
