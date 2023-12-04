@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <!-- Year Filter -->
       <div class="col-md-4">
-        <input type="text" formControlName="yearFilter" class="form-control  mt-3" placeholder="Filter by Year">
+        <input type="text" formControlName="yearFilter" class="form-control mt-3" placeholder="Filter by Year">
       </div>
       <!-- Type Filter -->
       <div class="col-md-4">
@@ -12,11 +12,11 @@
       </div>
       <!-- Name Filter -->
       <div class="col-md-4">
-        <input type="text" formControlName="nameFilter" class="form-control  mt-3" placeholder="Filter by Name">
+        <input type="text" formControlName="nameFilter" class="form-control mt-3" placeholder="Filter by Name">
       </div>
     </div>
     <div class="row">
-      <!-- <div class="col-md-4">
+     <!--  <div class="col-md-4">
         <select formControlName="sortType" class="form-control custom-select">
           <option value="" disabled selected>Select sorting method</option>
           <option value="title">Sort by Title</option>
@@ -24,8 +24,8 @@
           <option value="type">Sort by Type</option>
         </select>
       </div> -->
-      <div class="col-md-auto">
-        <button class="btn btn-secondary mt-3" (click)="goBack()"><i class="fa-solid fa-arrow-left"></i> Go back</button>
+      <div class="col-md-auto mt-3">
+        <button class="btn btn-secondary" (click)="goBack()"><i class="fa-solid fa-arrow-left"></i> Go back</button>
       </div>
     </div>
   </form>
@@ -55,5 +55,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- message when no movie found -->
+  <div *ngIf="filteredFavorites.length === 0" class="alert alert-warning text-center">
+    Movie not found.
   </div>
 </div>
