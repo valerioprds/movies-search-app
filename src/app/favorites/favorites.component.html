@@ -30,17 +30,18 @@
         />
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-auto mt-3">
-        <button class="btn btn-secondary" (click)="goBack()">
-          <i class="fa-solid fa-arrow-left"></i> Go back
-        </button>
-      </div>
-    </div>
+
   </form>
+  <div class="row">
+    <div class="col-md-auto ">
+      <button class="btn btn-secondary" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i> Go back
+      </button>
+    </div>
+  </div>
 
   <!-- Movie Cards -->
-  <div class="row">
+  <div class="row mt-3">
     <div
       class="col-lg-4 col-md-6 mb-4"
       *ngFor="let favorite of filteredFavorites; let i = index"
